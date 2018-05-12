@@ -1,0 +1,22 @@
+# ignore all
+/*
+/.*
+
+# white list
+!/.gitignore
+
+!/nvim
+/nvim/*
+!/nvim/dein.toml
+!/nvim/init.vim
+
+!/tmux
+/tmux/*
+!/tmux/tmux.conf
+
+!/zsh
+/zsh/*
+!/zsh/.zprofile
+!/zsh/.zshenv
+!/zsh/.zshrc
+!/zsh/.zprofile

@@ -3,7 +3,3 @@ repo = 'Shougo/dein.vim'
 
 [[plugins]] #colorscheme
 repo = 'jonathanfilip/vim-lucius'
-
-#[[plugins]] #括弧補完
-#repo = 'cohama/lexima.vim'
-

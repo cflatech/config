@@ -80,4 +80,5 @@ set softtabstop=2
 set expandtab
 "" 行ハイライト
 set cursorline
+highlight cursorline cterm=none
 "}}}
