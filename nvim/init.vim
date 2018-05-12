@@ -71,14 +71,16 @@ colorscheme lucius
 syntax on
 " インデント
 "" 自動インデント 空白の数
-set shiftwidth=2
+set shiftwidth=4
 "" タブの空白数
-set tabstop=2
+set tabstop=4
 "" Tabの入力時の空白数
-set softtabstop=2
+set softtabstop=4
 "" tabを半角スペースに
 set expandtab
 "" 行ハイライト
 set cursorline
 highlight cursorline cterm=none
+"" 不可視文字表示
+set listchars=tab:»-,trail:_,eol:↲,extends:»,precedes:«,nbsp:%
 "}}}
