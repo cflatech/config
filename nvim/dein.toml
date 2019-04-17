@@ -1,5 +1,0 @@
-[[plugins]]
-repo = 'Shougo/dein.vim'
-
-[[plugins]] #colorscheme
-repo = 'jonathanfilip/vim-lucius'
