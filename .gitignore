@@ -19,4 +19,6 @@
 !/zsh/.zprofile
 !/zsh/.zshenv
 !/zsh/.zshrc
-!/zsh/.zprofile
+!/zsh/aliases.zsh
+!/zsh/basic.zsh
+!/zsh/tools.zsh
