@@ -1,11 +1,11 @@
 # search
 
-if [[ -x `which peco 2> /dev/null` && -x `which ag 2> /dev/null` ]]; then
-  function age () {
+if [[ -x `which peco 2> /dev/null` && -x `which rg 2> /dev/null` ]]; then
+  function fs () {
     local args=$@
     [[ $# -eq 0 ]] && args='.'
 
-    eval $(ag $args | peco --layout=bottom-up | awk -F : "{print \"$EDITOR -c \" \$2 \" \" \$1}")
+    eval $(rg -n $args | peco --layout=bottom-up | awk -F : "{print \"$EDITOR -c \" \$2 \" \" \$1}")
   }
 fi
 
