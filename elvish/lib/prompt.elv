@@ -6,9 +6,10 @@ fn set {
     (constantly "[" $time "]\n" $name (put ": ") $current_dir "\n" "$ ");
   }
   set edit:rprompt = {
-    # if (eq (which git) == ) {
-    #   # var branch = git branch
-
-    # }
+    try {
+      var branch_name = (git branch 2> /dev/null | rg '\*' | sed 's/\* //g')
+      (constantly "[" (styled $branch_name green) "]")
+    } catch e {
+    }
   }
 }
