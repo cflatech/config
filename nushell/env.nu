@@ -1,7 +1,8 @@
 # Nushell Environment Config File
 
 # The prompt indicators are environmental variables that represent
-source prompt.nu
+use "~/.config/nushell/prompt.nu"
+prompt set_prompt
 
 # the state of the prompt
 let-env PROMPT_INDICATOR = { "> " }

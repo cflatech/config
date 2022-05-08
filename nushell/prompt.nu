@@ -23,6 +23,8 @@ def get_branch_state [] {
     let color = get_branch_color $status
 
     echo $"[($color + $branch_name)(ansi w)]"
+  } else {
+    echo ""
   }
 }
 
@@ -51,5 +53,7 @@ def create_right_prompt [] {
 }
 
 # Use nushell functions to define your right and left prompt
-let-env PROMPT_COMMAND = { create_left_prompt }
-let-env PROMPT_COMMAND_RIGHT = { create_right_prompt }
+export def-env set_prompt [] {
+  let-env PROMPT_COMMAND = { create_left_prompt }
+  let-env PROMPT_COMMAND_RIGHT = { create_right_prompt }
+}
