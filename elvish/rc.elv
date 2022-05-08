@@ -1,6 +1,8 @@
 var XDG_CONFIG_HOME = "~/.config/elvish"
 var EDITOR = vim
 
-# set prompt style
+# Load Modules
+## set prompt style
 use prompt
-prompt:set
+
+use alias
