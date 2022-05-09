@@ -340,7 +340,7 @@ let-env config = {
     {
       name: history_menu
       modifier: control
-      keycode: char_x
+      keycode: char_r
       mode: emacs
       event: {
         until: [
