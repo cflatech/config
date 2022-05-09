@@ -22,3 +22,5 @@
 !/zsh/aliases.zsh
 !/zsh/basic.zsh
 !/zsh/tools.zsh
+
+!/nushell
