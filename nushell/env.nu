@@ -4,6 +4,8 @@
 use "~/.config/nushell/prompt.nu"
 prompt set_prompt
 
+use "~/.config/nushell/git.nu"
+
 # the state of the prompt
 let-env PROMPT_INDICATOR = { "> " }
 let-env PROMPT_INDICATOR_VI_INSERT = { ": " }
