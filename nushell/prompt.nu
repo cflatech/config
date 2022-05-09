@@ -16,10 +16,11 @@ def create_left_prompt [] {
 
 def get_branch_state [] {
   let branch_result = (do -i { git rev-parse --abbrev-ref HEAD } | complete)
+  let status_result = (do -i { git status } | complete)
 
-  if ($branch_result.exit_code == 0) {
+  if ($branch_result.exit_code == 0 && $status_result.exit_code == 0) {
     let branch_name = ($branch_result.stdout | str trim)
-    let status = (git status)
+    let status = ($status_result.stdout | str trim)
     let color = get_branch_color $status
 
     echo $"[($color + $branch_name)(ansi w)]"
