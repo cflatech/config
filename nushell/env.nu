@@ -43,3 +43,10 @@ let-env NU_PLUGIN_DIRS = [
 
 # To add entries to PATH (on Windows you might use Path), you can use the following pattern:
 # let-env PATH = ($env.PATH | split row (char esep) | prepend '/some/path')
+
+# asdf settings
+# TODO: add directory checks
+let ASDF_BIN = "/opt/asdf-vm/bin"
+let ASDF_USER_SHIMS = $"($env.HOME)/.asdf/shims"
+let-env PATH = ($env.PATH | split row (char esep) | prepend $"($ASDF_BIN)")
+let-env PATH = ($env.PATH | split row (char esep) | prepend $"($ASDF_USER_SHIMS)")
