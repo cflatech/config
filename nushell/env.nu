@@ -1,10 +1,6 @@
 # Nushell Environment Config File
 
 # The prompt indicators are environmental variables that represent
-use "~/.config/nushell/prompt.nu"
-prompt set_prompt
-
-use "~/.config/nushell/git.nu"
 
 # the state of the prompt
 let-env PROMPT_INDICATOR = { "> " }
@@ -43,10 +39,15 @@ let-env NU_PLUGIN_DIRS = [
 
 # To add entries to PATH (on Windows you might use Path), you can use the following pattern:
 # let-env PATH = ($env.PATH | split row (char esep) | prepend '/some/path')
+use "~/.config/nushell/prompt.nu"
+prompt set_prompt
+
+use "~/.config/nushell/git.nu"
 
 # asdf settings
-# TODO: add directory checks
 let ASDF_BIN = "/opt/asdf-vm/bin"
 let ASDF_USER_SHIMS = $"($env.HOME)/.asdf/shims"
-let-env PATH = ($env.PATH | split row (char esep) | prepend $"($ASDF_BIN)")
-let-env PATH = ($env.PATH | split row (char esep) | prepend $"($ASDF_USER_SHIMS)")
+if (($ASDF_BIN | path exists) && ($ASDF_USER_SHIMS | path exists)) {
+  let-env PATH = ($env.PATH | split row (char esep) | prepend $"($ASDF_BIN)")
+  let-env PATH = ($env.PATH | split row (char esep) | prepend $"($ASDF_USER_SHIMS)")
+}
