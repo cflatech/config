@@ -47,7 +47,13 @@ use "~/.config/nushell/git.nu"
 # asdf settings
 let ASDF_BIN = "/opt/asdf-vm/bin"
 let ASDF_USER_SHIMS = $"($env.HOME)/.asdf/shims"
-if (($ASDF_BIN | path exists) && ($ASDF_USER_SHIMS | path exists)) {
-  let-env PATH = ($env.PATH | split row (char esep) | prepend $"($ASDF_BIN)")
-  let-env PATH = ($env.PATH | split row (char esep) | prepend $"($ASDF_USER_SHIMS)")
-}
+
+let-env PATH = (
+  if (($ASDF_BIN | path exists) && ($ASDF_USER_SHIMS | path exists)) {
+    let-env PATH = ($env.PATH | split row (char esep) | prepend $"($ASDF_BIN)")
+    let-env PATH = ($env.PATH | split row (char esep) | prepend $"($ASDF_USER_SHIMS)")
+    echo $env.PATH
+  } else {
+    echo $env.PATH
+  }
+)
