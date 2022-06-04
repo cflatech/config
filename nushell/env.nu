@@ -57,3 +57,5 @@ let-env PATH = (
     echo $env.PATH
   }
 )
+
+let-env XDG_CONFIG_HOME = $env.HOME + "/.config"
