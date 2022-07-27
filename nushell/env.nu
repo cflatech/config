@@ -58,4 +58,9 @@ let-env PATH = (
   }
 )
 
+def c [cpp] {
+  clang++ $cpp
+  ./a.out
+}
+
 let-env XDG_CONFIG_HOME = $env.HOME + "/.config"
