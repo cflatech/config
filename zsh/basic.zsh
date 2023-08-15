@@ -97,6 +97,21 @@ else
   bindkey '' history-beginning-search-forward-end
 fi
 
+if [[ -x `which sk 2> /dev/null` ]]; then
+  function sk-select-history() {
+    BUFFER="$(history -nr 1 | awk '!a[$0]++' | sk --prompt 'COMMAND> ' --query "$LBUFFER" | sed 's/\\n/\n/')"
+    CURSOR=$#BUFFER
+    zle -R -c
+  }
+  zle -N sk-select-history
+  bindkey '' sk-select-history
+else
+  autoload history-search-end
+  zle -N history-beginning-search-backward-end history-search-end
+  zle -N history-beginning-search-forward-end history-search-end
+  bindkey '' history-beginning-search-backward-end
+  bindkey '' history-beginning-search-forward-end
+fi
 
 # input completion
 
